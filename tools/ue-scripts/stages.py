@@ -10,6 +10,7 @@ def cli(*a):
     if not d.get("ok",True): raise SystemExit(f"FAIL {a} {json.dumps(d)[:400]}")
     return d.get("data",d)
 def setp(label,prop,val): cli("prop","set","--",label,prop,str(val))
+TITLES={"L_Stage01":"First Steps","L_Stage02":"Push It","L_Stage03":"Keys and Iron","L_Stage04":"Weight on the Plate","L_Stage05":"Fill the Pits"}
 def build(name,stage,nxt,last,events,limit,items,bounds=(0,6,0,6)):
     path=f"/Game/ShrinkRooms/Stages/{name}"
     try: cli("level","save","--all")
@@ -25,6 +26,7 @@ def build(name,stage,nxt,last,events,limit,items,bounds=(0,6,0,6)):
     mn,mx,my0,my1=bounds
     for k,v in (("MinX",mn),("MaxX",mx),("MinY",my0),("MaxY",my1),("TurnLimit",limit),("StageNumber",stage),("NextLevel",nxt),("IsLastStage","true" if last else "false")):
         setp("GridManager",k,v)
+    setp("GridManager","StageTitle",TITLES.get(name,""))
     for e in events: cli("prop","array","GridManager","ShrinkEvents","append","--value",str(e))
     n=0
     for kind,x,y,*ex in items:
