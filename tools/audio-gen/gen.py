@@ -57,6 +57,7 @@ def make(d):
     write(f"{d}/sfx_pit.wav", sweep(520, 90, 0.45, 0.9, r=0.1))
     write(f"{d}/sfx_clear.wav", seq(*[tone(f, 0.16, 0.8, decay=5) for f in (523, 659, 784, 1047)]))
     write(f"{d}/sfx_fail.wav", mix(sweep(300, 70, 0.6, 0.9, r=0.2), noise(0.6, 0.2, lp=0.05, r=0.2)))
+    write(f"{d}/sfx_warn.wav", seq(tone(740, 0.08, 0.7, decay=12), [0.0]*int(SR*0.05), tone(740, 0.08, 0.7, decay=12)))
     write(f"{d}/sfx_ui.wav", tone(660, 0.06, 0.7, decay=30))
     # BGM: 16 小節のゆるいループ(パッド + 低音パルス)
     bpm = 96; beat = 60 / bpm; chords = [(110, 164.8, 220), (87.3, 130.8, 174.6), (98, 146.8, 196), (82.4, 123.5, 164.8)]
