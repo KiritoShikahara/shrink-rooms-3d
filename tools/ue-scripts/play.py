@@ -11,8 +11,9 @@ def pos(label):
     return (int(prop(label,"GridX")),int(prop(label,"GridY")))
 DIR={"R":(1,0),"L":(-1,0),"U":(0,1),"D":(0,-1)}
 def play(level,moves,shot=None,boxes=()):
+    cli("pie","stop"); cli("level","save","--all")
     cli("level","open","/Game/ShrinkRooms/Stages/"+level)
-    cli("pie","stop"); r=cli("pie","start"); 
+    r=cli("pie","start"); 
     if not r.get("ok",True): print("start",str(r)[:200])
     cli("pie","wait","--seconds","0.5")
     if shot: cli("pie","screenshot","--filename",shot)

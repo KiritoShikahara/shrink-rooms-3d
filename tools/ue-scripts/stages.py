@@ -11,6 +11,7 @@ def cli(*a):
     return d.get("data",d)
 def setp(label,prop,val): cli("prop","set","--",label,prop,str(val))
 TITLES={"L_Stage01":"First Steps","L_Stage02":"Push It","L_Stage03":"Keys and Iron","L_Stage04":"Weight on the Plate","L_Stage05":"Fill the Pits"}
+HINTS={'L_Stage01': 'Reach the green goal before the walls close in.', 'L_Stage02': 'Push a box by walking into it. You can push only one box at a time.', 'L_Stage03': 'Take the key to open the red door. Iron boxes stop the walls.', 'L_Stage04': 'Put a box on the yellow plate to open the door.', 'L_Stage05': 'Push boxes into the pits to fill them.'}
 def build(name,stage,nxt,last,events,limit,items,bounds=(0,6,0,6)):
     path=f"/Game/ShrinkRooms/Stages/{name}"
     try: cli("level","save","--all")
@@ -27,6 +28,7 @@ def build(name,stage,nxt,last,events,limit,items,bounds=(0,6,0,6)):
     for k,v in (("MinX",mn),("MaxX",mx),("MinY",my0),("MaxY",my1),("TurnLimit",limit),("StageNumber",stage),("NextLevel",nxt),("IsLastStage","true" if last else "false")):
         setp("GridManager",k,v)
     setp("GridManager","StageTitle",TITLES.get(name,""))
+    setp("GridManager","StageHint",HINTS.get(name,""))
     for e in events: cli("prop","array","GridManager","ShrinkEvents","append","--value",str(e))
     n=0
     for kind,x,y,*ex in items:
