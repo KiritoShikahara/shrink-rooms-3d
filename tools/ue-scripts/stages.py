@@ -33,7 +33,10 @@ def build(name,stage,nxt,last,events,limit,items,bounds=(0,6,0,6)):
         setp(label,"GridX",x); setp(label,"GridY",y)
         for k,v in (ex[0].items() if ex else []): setp(label,k,v)
     cx=(mn+mx)*50; cy=(my0+my1)*50; cz=((mx-mn)+(my1-my0)+6)*50
-    cli("level","actor","spawn","CameraActor","--location",f"{cy},{cx},{cz}","--rotation=-90,0,0","--label","StageCamera")
+    import math
+    dist=round(cz/math.sin(math.radians(60)))
+    cli("level","actor","spawn","/Game/ShrinkRooms/Core/BP_StageCamera","--location",f"{cy},{cx},0","--label","StageCamera")
+    setp("StageCamera","BaseDist",dist); setp("StageCamera","TargetDist",dist)
     cli("level","actor","spawn","DirectionalLight","--location","0,0,1500","--rotation=-55,25,0","--label","Sun")
     cli("level","actor","spawn","SkyLight","--location","0,0,800","--label","Sky")
     setp("WorldSettings","DefaultGameMode","/Game/ShrinkRooms/Core/BP_TurnGameMode.BP_TurnGameMode_C")

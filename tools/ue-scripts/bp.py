@@ -20,7 +20,7 @@ class BP:
         for a,b in zip(ids,ids[1:]): s.c(a+".then",b+".execute")
     def var(s,name,typ,default=None):
         a=["blueprint","add-variable",s.p,name,"--type",typ,"--instance-editable"]
-        if default is not None: a+=["--default",str(default)]
+        if default is not None: a+=[f"--default={default}"]
         run(*a)
     def fn(s,name,params=(),returns=(),pure=False):
         a=["blueprint","add-function",s.p,name]
