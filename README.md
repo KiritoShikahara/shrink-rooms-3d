@@ -23,4 +23,4 @@ Steam「Shrink Rooms」を 3D トップダウンで作った、UE5.7.4(Blueprint
 - 仕様・計画・タスク: `specs/001-shrink-rooms-3d/`(各ステージの解法は `solutions.md`)
 
 ## テスト
-UE エディタを起動した状態で(`unrealengine-cli setup --prebuilt` と `unrealengine-cli editor open` の後)、`python tools/ue-scripts/regress.py` を実行します。5ステージの解法、失敗とリトライ、箱が潰れる/鉄箱が壁を止める、ポーズ、タイトル、ステージ選択の14項目を PIE で確認します。
+UE エディタを起動した状態で(`unrealengine-cli setup --prebuilt` と `unrealengine-cli editor open` の後)、`python tools/ue-scripts/regress.py` を実行します。5ステージの解法、失敗とリトライ、箱が潰れる/鉄箱が壁を止める、ポーズ、タイトル、ステージ選択の19項目を PIE で確認します。

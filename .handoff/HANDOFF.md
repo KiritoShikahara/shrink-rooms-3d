@@ -1,37 +1,39 @@
-# 引き継ぎ (2026-11-10 11:21 / main)
+# 引き継ぎ (2026-11-10 11:53 / main)
 
-次の一手: `specs/001-shrink-rooms-3d/improvement-tasks.md` の A-01(移動を 0.12 秒の補間にする。判定は即時、見た目だけ補間)から始める。
+次の一手: `python tools/ue-scripts/regress.py` を実行して 19 項目が通ることを確認し、`specs/001-shrink-rooms-3d/improvement-tasks.md` の未着手 P1(D-01 ほこり、B-04 木箱の縮む演出、H-02 ボタン統一部品、H-05 星と自己ベスト、C-04/05/06 モデル、E-03/04/05 カメラ)から続ける。
 
 ## 完了
-- Spec Kit 導入、憲章、`specs/001-shrink-rooms-3d/{spec,plan,data-model,quickstart,tasks}.md`
-- UE5.7.4 の Blueprint のみのプロジェクト `ShrinkRooms3D/`(5ステージ、タイトル、HUD、クリア、ゲームオーバー、全クリア、セーブ/CONTINUE)
-- 5ステージの解法は PIE で検証済み(`specs/001-shrink-rooms-3d/solutions.md`)。実キー入力の WASD も確認済み
-- 不具合と対処: `specs/001-shrink-rooms-3d/bugs.md`
-- 改善100件の計画: `specs/001-shrink-rooms-3d/improvement-tasks.md`
-- 公開リポジトリ: https://github.com/KiritoShikahara/shrink-rooms-3d(`main` は同期済み)
+- ゲーム本体(5ステージ、ギミック、タイトル、HUD、クリア/ゲームオーバー/全クリア、ポーズ、ステージ選択、セーブ/CONTINUE)
+- 改善タスク 100 件のうち ✅ 約 33 件、◐ 約 10 件(`improvement-tasks.md` の先頭に件数あり)
+  - 移動補間、ぶつかり、伸び縮み、斜めカメラと視点移動(Q/E/Z/X/ホイール/C)、移動キーの画面基準化
+  - 市松の床、光る色、ステージごとの照明色、収縮の警告(壁が光る)、次の収縮の HUD、ステージ名とヒント
+  - 合成した効果音と BGM(`tools/audio-gen/`)、画面揺れ、ヒットストップ、ゲームパッド対応
+  - タイトルの3D背景、扉が沈む、潰れた箱が落ちる、ゴールと鍵が回る
+- 回帰テスト `tools/ue-scripts/regress.py`(19 項目、全て PASS)
+- 実機: 120fps、ヒッチなし(`perf measure`)
 
 ## 残り(優先順)
-- 改善タスク P1(49件)。まず M1: A、B、C、D の P1
-- `tasks.md` の未完了 6件: T050(操作感)、T051(BP 整理)、T054〜T056(演出、UI 統一)、T058(60fps 計測)
-- 通常のエディタウィンドウで、画面表示を目視確認する
-- 試遊(5人、説明なし)で詰まりを確認する(K-07)
+- 未着手 P1: D-01(ほこり)、H-02(ボタンの共通部品)、H-05(星と自己ベスト)、C-04/05/06(モデルと質感)、E-03/04/05(カメラのイントロと画面比率)
+- ◐ の仕上げ: D-03/D-05(Niagara の `RadialBurst` は呼んでいるが目視できていない)、B-04、C-06、J-01、J-04(ポーズメニューの揺れ ON/OFF は動くが、開き直すとラベルが ON に戻る)
+- P2/P3 は `improvement-tasks.md` を参照
 
 ## 保留
-- 公開 push 済みの内容への追加 push — 変更のたびに確認する
+- push — 今回は push していない(ローカルコミットのみ)。公開リポジトリへの反映は確認待ち
 - エンジンの修復 — Epic Launcher の「検証」(UE_5.7)。作業中に `ResavePackages` で約5200ファイルを再保存し、`SplineDeformation.uasset` を UE_5.4 のコピーで暫定復旧した
 
 ## 再開に必要なもの
-- UE 5.7.4(Epic Launcher)、Visual Studio C++ ツール、Python 3
-- `unrealengine-cli`(`~/.cargo/bin`、リポジトリ `github-reps-main/repos/unrealengine-cli`)
-- Blueprint の自動編集をするとき:
+- UE 5.7.4(Epic Launcher)、Visual Studio C++ ツール、Python 3、`unrealengine-cli`
+- Blueprint を自動編集するとき:
   1. `cd ShrinkRooms3D`
-  2. `unrealengine-cli setup --prebuilt`(`uproject` に `UnrealCliBridge` と `PythonScriptPlugin` が足される)
+  2. `unrealengine-cli setup --prebuilt`
   3. `unrealengine-cli editor open`
-  4. 作業後に `uproject` から2つのプラグインを外す(確認者の環境で動かなくなるため。`tasks.md` T064)
-- 補助スクリプト: `tools/ue-scripts/`(`bp.py`、`stages.py`、`play.py`。使い方は同フォルダの README)
-- git に入っていないもの: `doc/`(講義資料。著作物のため非公開)、`Plugins/UnrealCliBridge/`(ビルド物)、`.orchestrator/`、`roc-solo-sonnet.cmd`
+  4. コミット前に `python tools/precommit-strip.py`(`uproject` から `UnrealCliBridge` と `PythonScriptPlugin` を外す。確認者の環境で動かなくなるため)
+- 補助スクリプト: `tools/ue-scripts/`(`bp.py`、`stages.py`、`play.py`、`regress.py`、`mats2.py`、`input_cam.py` など)、`tools/audio-gen/gen.py`
+- git に入っていないもの: `doc/`(講義資料。著作物のため非公開)、`Plugins/UnrealCliBridge/`、`.orchestrator/`、`roc-solo-sonnet.cmd`
 - 注意:
-  - `unrealengine-cli pie get` で `Player` というラベルは使えない(`GridPlayer` を使う)
-  - `level open` の前に `level save --all` が必要
-  - Git Bash で `/Game/...` を渡すときは `MSYS_NO_PATHCONV=1`
+  - `pie get` で `Player` というラベルは使えない(`GridPlayer`)
+  - `level open` の前に PIE を止めて `level save --all`
+  - 負の数の引数は `--location=-100,0,0` や `set-pin ... --` の形で渡す
+  - 子 BP のコンポーネント編集は親の共有テンプレートを書き換えるため、見た目は変数(`BodyMaterial`、`MeshScale`、`MeshZ`)で持つ
+  - 子 BP に Tick などのイベントを足すと親の処理が止まることがある。共通処理は `BP_GridActorBase` に足す
   - `-run=ResavePackages` は実行しない(エンジンの資産を書き換える)
