@@ -13,8 +13,8 @@
 - [x] T005 [P] 仮アセット用の基本マテリアル(単色)とキューブ/シリンダーを用意 (`C/Art/`)
 
 ## Phase 2: 基盤(全ストーリーの前提)
-- [ ] T006 BPI_GridActor インターフェース作成 (`C/Core/BPI_GridActor`)
-- [ ] T007 BP_GridActorBase: GridCoord, BlocksMovement, Pushable, Crushable (`C/Objects/BP_GridActorBase`)
+- [x] T006 BPI_GridActor インターフェース作成 (`C/Core/BPI_GridActor`)
+- [x] T007 BP_GridActorBase: GridCoord, BlocksMovement, Pushable, Crushable (`C/Objects/BP_GridActorBase`)
 - [ ] T008 BP_GridManager: 座標↔ワールド変換、占有 Map、セル種別 (`C/Core/BP_GridManager`)
 - [ ] T009 BP_GridManager: `TryMove` と `AdvanceTurn` の骨組み (`C/Core/BP_GridManager`)
 - [ ] T010 BP_TurnGameMode と BP_GameInstance(現在ステージ) (`C/Core/`)
@@ -85,6 +85,7 @@
 - [ ] T061 クリーンクローンから起動確認(プラグインの問題なし)
 - [ ] T062 README に操作と構成を記載 (`README.md`)
 - [ ] T063 quickstart のチェックリストを全項目確認
+- [ ] T064 提出前に uproject から UnrealCliBridge と PythonScriptPlugin を削除(確認者の環境で動かない恐れ) (`ShrinkRooms3D/ShrinkRooms3D.uproject`)
 
 ## 依存関係
 - Phase 1 → 2 → 3(MVP) → 4 → 5 → 6 → 7 → 8 → 9
