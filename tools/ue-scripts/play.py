@@ -8,8 +8,7 @@ def prop(label,p):
     d=cli("pie","get",label,p)
     return d.get("data",{}).get("properties",{}).get(p)
 def pos(label):
-    d=cli("pie","get",label).get("data",{}); l=d.get("location"); 
-    return (round(l["y"]/100),round(l["x"]/100)) if l else None
+    return (int(prop(label,"GridX")),int(prop(label,"GridY")))
 DIR={"R":(1,0),"L":(-1,0),"U":(0,1),"D":(0,-1)}
 def play(level,moves,shot=None,boxes=()):
     cli("level","open","/Game/ShrinkRooms/Stages/"+level)
