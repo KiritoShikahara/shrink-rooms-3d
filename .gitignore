@@ -1,0 +1,14 @@
+# Unreal Engine
+ShrinkRooms3D/Binaries/
+ShrinkRooms3D/Intermediate/
+ShrinkRooms3D/Saved/
+ShrinkRooms3D/DerivedDataCache/
+ShrinkRooms3D/.vs/
+ShrinkRooms3D/*.sln
+ShrinkRooms3D/*.suo
+# Tooling
+.orchestrator/
+*.cmd
+.claude/settings.local.json
+# 講義資料(第三者の著作物のため公開しない)
+doc/
