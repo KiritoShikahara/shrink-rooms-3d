@@ -30,7 +30,7 @@
 - [x] T018 [US1] 手動確認: 開始 → 移動 → 箱押し → クリア
 
 ## Phase 4: US2 - 壁収縮と失敗/リトライ (P1)
-- [x] T019 [US2] DT_Stages 作成(StageId/サイズ/ShrinkSchedule/TurnLimit/NextStageId) (`C/Stages/DT_Stages`)
+- [x] T019 [US2] ステージ設定(StageId→GridManager のインスタンス変数: 範囲、ShrinkEvents、TurnLimit、NextLevel。DataTable の代わり)(StageId/サイズ/ShrinkSchedule/TurnLimit/NextStageId) (`C/Stages/DT_Stages`)
 - [x] T020 [US2] BP_ShrinkWall: ラウンド終了時に ShrinkSchedule に従い指定の辺を1マス収縮 (`C/Objects/BP_ShrinkWall`)
 - [x] T021 [US2] 収縮時の箱処理: 押せるなら押す(木箱) (`C/Core/BP_GridManager`)
 - [x] T022 [US2] BP_BoxIron: 潰れない。収縮が止まる (`C/Objects/BP_BoxIron`)
