@@ -22,6 +22,6 @@ def mapping(action,key,negate=False):
     m.set_editor_property("modifiers",[unreal.new_object(unreal.InputModifierNegate,outer=imc)] if negate else []); maps.append(m)
 mapping(yaw,"E"); mapping(yaw,"Q",True)
 mapping(pitch,"Z"); mapping(pitch,"X",True)
-mapping(zoom,"MouseWheelAxis"); mapping(reset,"C"); mapping(pause,"Escape")
+mapping(zoom,"MouseWheelAxis"); mapping(yaw,"Gamepad_RightX"); mapping(pitch,"Gamepad_RightY"); mapping(zoom,"Gamepad_RightTriggerAxis"); mapping(zoom,"Gamepad_LeftTriggerAxis",True); mapping(pause,"Gamepad_Special_Right"); mapping(reset,"C"); mapping(pause,"Escape")
 d=imc.get_editor_property("default_key_mappings"); d.set_editor_property("mappings",maps); imc.set_editor_property("default_key_mappings",d)
 eal.save_loaded_asset(imc); print("cam input ok",len(maps))
