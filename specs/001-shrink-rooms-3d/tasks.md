@@ -80,11 +80,11 @@
 - [ ] T058 パフォーマンス確認(PIE で 60fps、不要なアセットを削除)
 
 ## Phase 9: 提出整備
-- [ ] T059 未使用アセット削除、テクスチャのサイズ縮小
-- [ ] T060 プロジェクトサイズを計測(2GB 未満) (`quickstart.md` のチェックリスト)
-- [ ] T061 クリーンクローンから起動確認(プラグインの問題なし)
+- [x] T059 未使用アセット削除、テクスチャのサイズ縮小
+- [x] T060 プロジェクトサイズを計測(2GB 未満) (`quickstart.md` のチェックリスト)
+- [x] T061 クリーンクローンから起動確認(プラグインの問題なし)
 - [x] T062 README に操作と構成を記載 (`README.md`)
-- [ ] T063 quickstart のチェックリストを全項目確認
+- [x] T063 quickstart のチェックリストを全項目確認
 - [x] T064 提出前に uproject から UnrealCliBridge と PythonScriptPlugin を削除(確認者の環境で動かない恐れ) (`ShrinkRooms3D/ShrinkRooms3D.uproject`)
 
 ## 依存関係
