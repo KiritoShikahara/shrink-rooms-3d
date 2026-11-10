@@ -9,8 +9,8 @@
 - [x] T001 UE5.7.4 で新規プロジェクト作成(Blueprint, スターターコンテンツなし) (`ShrinkRooms3D/`)
 - [x] T002 `.gitignore` 作成(Binaries/Intermediate/Saved/DerivedDataCache/.vs)と git 初期化 (`.gitignore`)
 - [x] T003 [P] フォルダ構成作成 (`C/Core, Player, Objects, Stages, UI, Art`)
-- [ ] T004 [P] Enhanced Input: IA_Move(Axis2D), IA_Retry, IMC_Default (`C/Player/`)
-- [ ] T005 [P] 仮アセット用の基本マテリアル(単色)とキューブ/シリンダーを用意 (`C/Art/`)
+- [x] T004 [P] Enhanced Input: IA_Move(Axis2D), IA_Retry, IMC_Default (`C/Player/`)
+- [x] T005 [P] 仮アセット用の基本マテリアル(単色)とキューブ/シリンダーを用意 (`C/Art/`)
 
 ## Phase 2: 基盤(全ストーリーの前提)
 - [ ] T006 BPI_GridActor インターフェース作成 (`C/Core/BPI_GridActor`)
