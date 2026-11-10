@@ -46,7 +46,7 @@
 - [x] T030 [P] [US3] BP_PressurePlate (`C/Objects/BP_PressurePlate`)
 - [x] T031 [P] [US3] BP_Pit(プレイヤー即死、箱で埋まる) (`C/Objects/BP_Pit`)
 - [x] T032 [US3] AdvanceTurn にギミック更新を組み込み(順序は plan 参照) (`C/Core/BP_GridManager`)
-- [ ] T033 [US3] HUD に所持鍵表示 (`C/UI/WBP_HUD`)
+- [x] T033 [US3] HUD に所持鍵表示 (`C/UI/WBP_HUD`)
 - [x] T034 [US3] 手動確認: 鍵→扉、板→扉、穴の即死/埋め
 
 ## Phase 6: US4 - 5ステージとタイトル (P2)
@@ -63,29 +63,29 @@
 - [x] T045 [US4] 手動確認: タイトル → 1〜5 → AllClear → 再起動で続き
 
 ## Phase 7: 修正・調整 (FR-016)
-- [ ] T046 通しプレイで不具合を洗い出し、`bugs.md` に記録 (`specs/001-shrink-rooms-3d/bugs.md`)
-- [ ] T047 入力まわりの修正(連打、アニメ中入力、同時押し)
-- [ ] T048 収縮・判定の境界ケース修正(同ターン到達、箱連続、穴と収縮の同時)
-- [ ] T049 難易度調整(ShrinkSchedule、配置)と、詰み回避の確認
+- [x] T046 通しプレイで不具合を洗い出し、`bugs.md` に記録 (`specs/001-shrink-rooms-3d/bugs.md`)
+- [x] T047 入力まわりの修正(連打、アニメ中入力、同時押し)
+- [x] T048 収縮・判定の境界ケース修正(同ターン到達、箱連続、穴と収縮の同時)
+- [x] T049 難易度調整(ShrinkSchedule、配置)と、詰み回避の確認
 - [ ] T050 操作感調整(移動速度、カメラ、リトライ速度 2秒以内)
 - [ ] T051 BP 整理(コメント、命名、ノード整列、未使用ノード削除)
 
 ## Phase 8: グラフィックス向上 (FR-015)
-- [ ] T052 [P] 壁・床・箱・鉄箱のマテリアルとインスタンス (`C/Art/M_*, MI_*`)
-- [ ] T053 [P] ライティング: 部屋の雰囲気、影、ポストプロセス (`C/Art/PP_*`)
+- [x] T052 [P] 壁・床・箱・鉄箱のマテリアルとインスタンス (`C/Art/M_*, MI_*`)
+- [x] T053 [P] ライティング: 部屋の雰囲気、影、ポストプロセス (`C/Art/PP_*`)
 - [ ] T054 [P] 収縮の演出(壁の動き、カメラシェイク、ダスト) (`C/Art/NS_*`)
 - [ ] T055 [P] 箱が潰れる/穴が埋まる/扉が開く演出 (`C/Art/NS_*`)
 - [ ] T056 [P] UI のデザイン統一(フォント、色、フェード) (`C/UI/`)
-- [ ] T057 [P] サウンド(移動、押す、収縮、クリア、失敗、BGM)。小さい圧縮音源のみ (`C/Art/Audio/`)
+- [x] T057 [P] サウンド(移動、押す、収縮、クリア、失敗、BGM)。小さい圧縮音源のみ (`C/Art/Audio/`)
 - [ ] T058 パフォーマンス確認(PIE で 60fps、不要なアセットを削除)
 
 ## Phase 9: 提出整備
 - [ ] T059 未使用アセット削除、テクスチャのサイズ縮小
 - [ ] T060 プロジェクトサイズを計測(2GB 未満) (`quickstart.md` のチェックリスト)
 - [ ] T061 クリーンクローンから起動確認(プラグインの問題なし)
-- [ ] T062 README に操作と構成を記載 (`README.md`)
+- [x] T062 README に操作と構成を記載 (`README.md`)
 - [ ] T063 quickstart のチェックリストを全項目確認
-- [ ] T064 提出前に uproject から UnrealCliBridge と PythonScriptPlugin を削除(確認者の環境で動かない恐れ) (`ShrinkRooms3D/ShrinkRooms3D.uproject`)
+- [x] T064 提出前に uproject から UnrealCliBridge と PythonScriptPlugin を削除(確認者の環境で動かない恐れ) (`ShrinkRooms3D/ShrinkRooms3D.uproject`)
 
 ## 依存関係
 - Phase 1 → 2 → 3(MVP) → 4 → 5 → 6 → 7 → 8 → 9
